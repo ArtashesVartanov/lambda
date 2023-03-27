@@ -12,6 +12,7 @@ public class Main {
         persons.add(new Person("Vladimir","Smirnov-Denisov-Victorov",9));
 
         persons.removeIf(person -> person.getAge() < 18);
+        
 
         persons.forEach(System.out::println);
     }
