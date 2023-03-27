@@ -11,11 +11,17 @@ public class Main {
         persons.add(new Person("Victor","Smirnov-Victorov",60));
         persons.add(new Person("Vladimir","Smirnov-Denisov-Victorov",9));
 
-        Collections.sort(persons, new PersonComparator());
-
-                for (Person person : persons) {
-                    System.out.println(person);
-                }
+        Collections.sort(persons, (o1, o2) -> {
+            int length1 = o1.getSurname().split("-").length;
+            int length2 = o2.getSurname().split("-").length;
+            if (length1 < length2) {
+                return -1;
+            }
+            if (length1 > length2) {
+                return 1;
+            }
+            return o1.getAge() - o2.getAge();
+        });
 
         persons.forEach(System.out::println);
     }
