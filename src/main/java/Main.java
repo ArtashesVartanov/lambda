@@ -11,11 +11,7 @@ public class Main {
         persons.add(new Person("Victor","Smirnov-Victorov",60));
         persons.add(new Person("Vladimir","Smirnov-Denisov-Victorov",9));
 
-        Collections.sort(persons, new PersonComparator());
-
-                for (Person person : persons) {
-                    System.out.println(person);
-                }
+        persons.removeIf(person -> person.getAge() < 18);
 
         persons.forEach(System.out::println);
     }
